@@ -9,6 +9,9 @@ export function saveState(){
   let carData = JSON.stringify(ProxyState.cars)
   localStorage.setItem('cars', carData)
   // ------------------
+
+  let houseData = JSON.stringify(ProxyState.houses)
+  localStorage.setItem('houses', houseData)
 }
 
 export function loadState(){
@@ -22,4 +25,11 @@ export function loadState(){
     ProxyState.cars = carData.map(c => new Car(c))
   }
   // ----------------------------
+  let rawHouses = localStorage.getItem('houses')
+  if(rawHouses){
+    let houseData = JSON.parse(rawHouses)
+    console.log(houseData);
+    
+    ProxyState.houses = houseData.map(h => new House(h))
+  }
 }

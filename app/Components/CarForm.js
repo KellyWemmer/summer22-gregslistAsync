@@ -4,9 +4,9 @@ import { Car } from "../Models/Car.js";
 // @ts-ignore
 export function getCarForm(car = new Car({})) {
 
-  let submitAction = 'app.carsController.createCar()'
+  let submitAction = 'app.housesController.createCar()'
   if(car.id){
-    submitAction = `app.carsController.editCar('${car.id}')`
+    submitAction = `app.housesController.editCar('${car.id}')`
   }
 
   return `
@@ -15,7 +15,7 @@ export function getCarForm(car = new Car({})) {
     <div class="row">
       <div class="col-4">
         <label class="form-label" for="make">Make</label>
-        <input class="form-control" type="text" minlength="5" id="make" name="make" value="${car.make}" >
+        <input class="form-control" type="text" minlength="1" id="make" name="make" value="${car.make}" >
       </div>
       <div class="col-4">
         <label class="form-label" for="model">Model</label>
